@@ -3,14 +3,6 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.23">
     <root id="1">
       <ServerVersion>14.0</ServerVersion>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-13753||-9223372036854775808|c|G
-13753||10|c|G
-13753||10|C|G
-13753||10|T|G</Grants>
       <DateStyle>mdy</DateStyle>
       <TimeZones>true ACDT
 true ACSST
@@ -792,7 +784,7 @@ false YEKT
 false Z
 false Zulu
 </TimeZones>
-      <IntrospectionStateNumber>802</IntrospectionStateNumber>
+      <IntrospectionStateNumber>806</IntrospectionStateNumber>
       <StartupTime>1634049689</StartupTime>
     </root>
     <database id="2" parent="1" name="person_db">
@@ -808,8 +800,10 @@ false Zulu
 13388||-9223372036854775808|U|G
 13388||10|U|G</Grants>
       <Owner>person_databaseuser</Owner>
-      <IntrospectionStateNumber>803</IntrospectionStateNumber>
+      <IntrospectionStateNumber>807</IntrospectionStateNumber>
       <Current>1</Current>
+      <Relations>sequence|table|16397|16398|1
+</Relations>
     </database>
     <database id="3" parent="1" name="postgres">
       <ObjectId>13754</ObjectId>
@@ -895,7 +889,7 @@ false Zulu
       <Comment>standard public schema</Comment>
       <StateNumber>527</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>803</IntrospectionStateNumber>
+      <IntrospectionStateNumber>807</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <extension id="23" parent="2" name="plpgsql">
@@ -996,5 +990,54 @@ false Zulu
       <Handler>pg_catalog.spghandler</Handler>
       <HandlerId>334</HandlerId>
     </access-method>
+    <sequence id="35" parent="22" name="people_id_seq">
+      <ObjectId>16397</ObjectId>
+      <Owner>person_dbuser</Owner>
+      <StateNumber>804</StateNumber>
+      <DataType>integer|0s</DataType>
+    </sequence>
+    <table id="36" parent="22" name="people">
+      <ObjectId>16398</ObjectId>
+      <Owner>person_dbuser</Owner>
+      <StateNumber>804</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+    </table>
+    <column id="37" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>804</StateNumber>
+      <DefaultExpression>nextval(&apos;people_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="38" parent="36" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>804</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="39" parent="36" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>804</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="40" parent="36" name="people_pkey">
+      <ObjectId>16402</ObjectId>
+      <StateNumber>804</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+      <Primary>1</Primary>
+      <CollationIds>0</CollationIds>
+      <ClassIds>1978</ClassIds>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="41" parent="36" name="people_pkey">
+      <ObjectId>16403</ObjectId>
+      <StateNumber>804</StateNumber>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>people_pkey</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
